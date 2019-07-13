@@ -9,15 +9,16 @@ import android.widget.ImageView;
 import android.widget.ListAdapter;
 import android.widget.TextView;
 
-import com.example.dreamTeam.DataAboutField;
 import com.example.dreamTeam.R;
+import com.example.dreamTeam.Statmen;
+import com.example.dreamTeam.StatmenEnum;
 
 import java.util.ArrayList;
 
 public class StatmenAdapter implements ListAdapter {
-    ArrayList<DataAboutField> arrayList;
+    ArrayList<Statmen> arrayList;
     Context context;
-    public StatmenAdapter(Context context, ArrayList<DataAboutField> arrayList) {
+    public StatmenAdapter(Context context, ArrayList<Statmen> arrayList) {
         this.arrayList=arrayList;
         this.context=context;
     }
@@ -53,20 +54,32 @@ public class StatmenAdapter implements ListAdapter {
     }
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        DataAboutField subjectData=arrayList.get(position);
+        Statmen statmenDate=arrayList.get(position);
         if(convertView==null) {
             LayoutInflater layoutInflater = LayoutInflater.from(context);
-            convertView=layoutInflater.inflate(R.layout.item_list, null);
+            convertView=layoutInflater.inflate(R.layout.item_for_statmen, null);
             convertView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                 }
             });
-            TextView tittle=convertView.findViewById(R.id.TextView);
-            ImageView imag=convertView.findViewById(R.id.imageViewDisplayIcon);
-            tittle.setText(subjectData.SubjectName);
+           TextView tittle=convertView.findViewById(R.id.TextViewRefer);
+            tittle.setText(statmenDate.Text);
 
-            imag.setImageDrawable(subjectData.Link);
+            ImageView imgView= convertView.findViewById(R.id.imageViewIconState);
+
+            switch (statmenDate.State) {
+                case DONE:
+                imgView.setImageDrawable(context.getDrawable(R.drawable.green_shape));
+                    break;
+                case DOWLODED:
+                imgView.setImageDrawable(context.getDrawable(R.drawable.red_shape));
+                    break;
+                case PROCESSING:
+                    imgView.setImageDrawable(context.getDrawable(R.drawable.yellow_shape));
+                    break;
+            }
+           // imag.setImageDrawable(statmenDate.Link);
         }
         return convertView;
     }

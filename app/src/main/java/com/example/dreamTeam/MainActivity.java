@@ -23,6 +23,7 @@ import android.widget.ListView;
 
 import com.example.dreamTeam.Activity.StatmenActivity;
 import com.example.dreamTeam.Adapter.CustomAdapter;
+import com.example.dreamTeam.Adapter.StatmenAdapter;
 
 import java.util.ArrayList;
 
@@ -103,9 +104,8 @@ public class MainActivity extends AppCompatActivity
         if (id == R.id.nav_home) {
 
         } else if (id == R.id.nav_gallery) {
-            Intent intent =  new Intent(MainActivity.this, StatmenActivity.class);
+          Intent intent =  new Intent(MainActivity.this,StatmenActivity.class);
         startActivity(intent);
-
 
         } else if (id == R.id.nav_reiting) {
 

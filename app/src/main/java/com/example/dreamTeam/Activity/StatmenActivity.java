@@ -1,5 +1,6 @@
 package com.example.dreamTeam.Activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -16,8 +17,12 @@ import android.view.Menu;
 import android.widget.ListView;
 
 import com.example.dreamTeam.Adapter.CustomAdapter;
+import com.example.dreamTeam.Adapter.StatmenAdapter;
 import com.example.dreamTeam.DataAboutField;
+import com.example.dreamTeam.MainActivity;
 import com.example.dreamTeam.R;
+import com.example.dreamTeam.Statmen;
+import com.example.dreamTeam.StatmenEnum;
 
 import java.util.ArrayList;
 
@@ -48,12 +53,13 @@ public class StatmenActivity extends AppCompatActivity
 
 
         final ListView list =(ListView) findViewById(R.id.liststatmen);
-        ArrayList<DataAboutField> arrayList = new ArrayList<DataAboutField>();
-        arrayList.add(new DataAboutField("Газпром",getResources().getDrawable( R.drawable.gaz1 )));
-        arrayList.add(new DataAboutField("Горводоканал",getResources().getDrawable( R.drawable.gorvodok )));
-        arrayList.add(new DataAboutField("ТНС Энерго",getResources().getDrawable( R.drawable.energo)));
-        CustomAdapter customAdapter = new  CustomAdapter(this.getApplicationContext(),arrayList);
-        list.setAdapter(customAdapter);
+        ArrayList<Statmen> arrayList = new ArrayList<Statmen>();
+        arrayList.add(new Statmen("Нет uорячей воды в корпусе 2 по улице Кранштадская 45 ", StatmenEnum.DONE));
+        arrayList.add(new Statmen("Месяц не убирается дерево на улице Пушкиа 124б меры ",StatmenEnum.PROCESSING));
+        arrayList.add(new Statmen("Не могут сдлеать качественную дорогу по части улице 125 конта ",StatmenEnum.DOWLODED));
+
+        StatmenAdapter statmenAdapter = new StatmenAdapter(this.getApplicationContext(),arrayList);
+        list.setAdapter(statmenAdapter);
     }
 
     @Override

@@ -4,12 +4,9 @@ import android.content.Context;
 
 
 import android.content.Intent;
-import android.content.res.Resources;
 import android.database.DataSetObserver;
 import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
-import android.graphics.drawable.Drawable;
-import android.util.Log;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -20,7 +17,6 @@ import android.widget.TextView;
 
 import com.example.dreamTeam.CreateReport;
 import com.example.dreamTeam.DataAboutField;
-import com.example.dreamTeam.MainActivity;
 import com.example.dreamTeam.R;
 
 import java.io.ByteArrayOutputStream;
@@ -85,10 +81,9 @@ public  class CustomAdapter implements ListAdapter {
                 }
             });
 
-            TextView tittle=convertView.findViewById(R.id.TextView);
-            ImageView imag=convertView.findViewById(R.id.imageViewDisplayIcon);
+            TextView tittle=convertView.findViewById(R.id.TextViewRefer);
 
-           // TextView tittle=convertView.findViewById(R.id.NameOfAplicathion);
+
             ImageView img=convertView.findViewById(R.id.imageViewDisplayIcon);
             tittle.setText(subjectData.SubjectName);
 
