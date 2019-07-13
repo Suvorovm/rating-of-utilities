@@ -1,6 +1,5 @@
-package com.example.dreamTeam;
+package com.example.dreamTeam.Activity;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -14,22 +13,21 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
-
 import android.widget.ListView;
 
-import com.example.dreamTeam.Activity.StatmenActivity;
 import com.example.dreamTeam.Adapter.CustomAdapter;
+import com.example.dreamTeam.DataAboutField;
+import com.example.dreamTeam.R;
 
 import java.util.ArrayList;
 
-
-public class MainActivity extends AppCompatActivity
+public class StatmenActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_statmen);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         FloatingActionButton fab = findViewById(R.id.fab);
@@ -48,14 +46,14 @@ public class MainActivity extends AppCompatActivity
         toggle.syncState();
         navigationView.setNavigationItemSelectedListener(this);
 
-        final ListView list =(ListView) findViewById(R.id.list);
+
+        final ListView list =(ListView) findViewById(R.id.liststatmen);
         ArrayList<DataAboutField> arrayList = new ArrayList<DataAboutField>();
         arrayList.add(new DataAboutField("Газпром",getResources().getDrawable( R.drawable.gaz1 )));
         arrayList.add(new DataAboutField("Горводоканал",getResources().getDrawable( R.drawable.gorvodok )));
         arrayList.add(new DataAboutField("ТНС Энерго",getResources().getDrawable( R.drawable.energo)));
         CustomAdapter customAdapter = new  CustomAdapter(this.getApplicationContext(),arrayList);
         list.setAdapter(customAdapter);
-
     }
 
     @Override
@@ -71,7 +69,7 @@ public class MainActivity extends AppCompatActivity
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.main, menu);
+        getMenuInflater().inflate(R.menu.statmen, menu);
         return true;
     }
 
@@ -90,33 +88,28 @@ public class MainActivity extends AppCompatActivity
         return super.onOptionsItemSelected(item);
     }
 
-
+    @SuppressWarnings("StatementWithEmptyBody")
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
         if (id == R.id.nav_home) {
-
-
-
+            // Handle the camera action
         } else if (id == R.id.nav_gallery) {
-            Intent intent =  new Intent(MainActivity.this, StatmenActivity.class);
-        startActivity(intent);
 
-        } else if (id == R.id.nav_reiting) {
+        } else if (id == R.id.nav_slideshow) {
 
         } else if (id == R.id.nav_tools) {
 
-        } else if (id == R.id.nav_out) {
-            Intent inent = new Intent(MainActivity.this, LogInActiviry.class);
-            startActivity(inent);
+        } else if (id == R.id.nav_share) {
+
+        } else if (id == R.id.nav_send) {
+
         }
+
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
-
-
-
 }

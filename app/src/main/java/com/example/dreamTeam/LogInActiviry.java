@@ -6,7 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 
-public class first_start extends AppCompatActivity {
+public class LogInActiviry extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

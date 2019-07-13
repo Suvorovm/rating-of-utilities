@@ -14,11 +14,10 @@ import com.example.dreamTeam.R;
 
 import java.util.ArrayList;
 
-
-public  class CustomAdapter implements ListAdapter {
+public class StatmenAdapter implements ListAdapter {
     ArrayList<DataAboutField> arrayList;
     Context context;
-    public CustomAdapter(Context context, ArrayList<DataAboutField> arrayList) {
+    public StatmenAdapter(Context context, ArrayList<DataAboutField> arrayList) {
         this.arrayList=arrayList;
         this.context=context;
     }
