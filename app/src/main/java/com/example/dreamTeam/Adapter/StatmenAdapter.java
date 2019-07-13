@@ -1,16 +1,7 @@
 package com.example.dreamTeam.Adapter;
 
 import android.content.Context;
-
-
-import android.content.Intent;
-import android.content.res.Resources;
 import android.database.DataSetObserver;
-import android.graphics.Bitmap;
-import android.graphics.drawable.BitmapDrawable;
-import android.graphics.drawable.Drawable;
-import android.util.Log;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,19 +9,15 @@ import android.widget.ImageView;
 import android.widget.ListAdapter;
 import android.widget.TextView;
 
-import com.example.dreamTeam.CreateReport;
 import com.example.dreamTeam.DataAboutField;
-import com.example.dreamTeam.MainActivity;
 import com.example.dreamTeam.R;
 
-import java.io.ByteArrayOutputStream;
 import java.util.ArrayList;
 
-
-public  class CustomAdapter implements ListAdapter {
+public class StatmenAdapter implements ListAdapter {
     ArrayList<DataAboutField> arrayList;
     Context context;
-    public CustomAdapter(Context context, ArrayList<DataAboutField> arrayList) {
+    public StatmenAdapter(Context context, ArrayList<DataAboutField> arrayList) {
         this.arrayList=arrayList;
         this.context=context;
     }
@@ -73,25 +60,13 @@ public  class CustomAdapter implements ListAdapter {
             convertView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    ImageView image = v.findViewById(R.id.imageViewDisplayIcon);
-                    Intent Main = new Intent(context.getApplicationContext(), CreateReport.class);
-                    Bitmap bitmap = ((BitmapDrawable)image.getDrawable()).getBitmap();
-                    ByteArrayOutputStream bs = new ByteArrayOutputStream();
-                    bitmap.compress(Bitmap.CompressFormat.JPEG, 50, bs);
-                    Main.putExtra("byteArray", bs.toByteArray());
-                    context.startActivity(Main);
-
                 }
             });
-
             TextView tittle=convertView.findViewById(R.id.TextView);
             ImageView imag=convertView.findViewById(R.id.imageViewDisplayIcon);
-
-            TextView tittle=convertView.findViewById(R.id.NameOfAplicathion);
-            ImageView img=convertView.findViewById(R.id.imageViewDisplayIcon);
             tittle.setText(subjectData.SubjectName);
 
-            img.setImageDrawable(subjectData.Link);
+            imag.setImageDrawable(subjectData.Link);
         }
         return convertView;
     }

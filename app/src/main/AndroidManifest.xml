@@ -9,8 +9,15 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+
+        <activity
+            android:name=".Activity.StatmenActivity"
+            android:label="@string/title_activity_statmen"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity android:name=".LogInActiviry">
         <activity android:name=".CreateReport"></activity>
         <activity android:name=".first_start">
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -22,8 +29,6 @@
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
