@@ -28,7 +28,5 @@ public class LogInActiviry extends AppCompatActivity {
         String login = "";
         Intent Main = new Intent(getApplicationContext(), MainActivity.class);
         startActivity(Main);
-
-
     }
 }
