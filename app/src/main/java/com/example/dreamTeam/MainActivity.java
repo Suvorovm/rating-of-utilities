@@ -13,6 +13,11 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
+import android.widget.ListView;
+
+import com.example.dreamTeam.Adapter.CustomAdapter;
+
+import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -38,6 +43,15 @@ public class MainActivity extends AppCompatActivity
         drawer.addDrawerListener(toggle);
         toggle.syncState();
         navigationView.setNavigationItemSelectedListener(this);
+
+        setContentView(R.layout.activity_main);
+        final ListView list = findViewById(R.id.list);
+        ArrayList<DataAboutField> arrayList = new ArrayList<DataAboutField>();
+        arrayList.add(new DataAboutField("Газпром",getResources().getDrawable( R.drawable.gaz1 )));
+        arrayList.add(new DataAboutField("Горводоканал",getResources().getDrawable( R.drawable.gorvodok )));
+        arrayList.add(new DataAboutField("ТНС Энерго",getResources().getDrawable( R.drawable.energo )));
+        CustomAdapter customAdapter = new  CustomAdapter(this.getApplicationContext(),arrayList);
+        list.setAdapter(customAdapter);
     }
 
     @Override
