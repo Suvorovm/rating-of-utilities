@@ -3,8 +3,6 @@ package com.example.dreamTeam.Adapter;
 import android.content.Context;
 import android.content.Intent;
 import android.database.DataSetObserver;
-import android.graphics.Bitmap;
-import android.graphics.drawable.BitmapDrawable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,12 +10,11 @@ import android.widget.ImageView;
 import android.widget.ListAdapter;
 import android.widget.TextView;
 
-import com.example.dreamTeam.CreateReport;
+import com.example.dreamTeam.Activity.StatmenNotEndActivity;
 import com.example.dreamTeam.R;
 import com.example.dreamTeam.Statmen;
 import com.example.dreamTeam.StatmenEnum;
 
-import java.io.ByteArrayOutputStream;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
@@ -25,11 +22,11 @@ import java.util.HashMap;
 public class StatmenAdapter implements ListAdapter {
     ArrayList<Statmen> arrayList;
     Context context;
-    HashMap<String,StatmenEnum> hashMapStatments;
+    HashMap<String,Statmen> hashMapStatments;
     public StatmenAdapter(Context context, ArrayList<Statmen> arrayList) {
         this.arrayList=arrayList;
         this.context=context;
-        hashMapStatments = new HashMap<String, StatmenEnum>();
+        hashMapStatments = new HashMap<String, Statmen>();
     }
     @Override
     public boolean areAllItemsEnabled() {
@@ -72,10 +69,16 @@ public class StatmenAdapter implements ListAdapter {
                 public void onClick(View v) {
                     TextView textView = v.findViewById(R.id.TextViewRefer);
                     String titl = textView.getText().toString();
-                    if(hashMapStatments.get(titl)==StatmenEnum.DONE){
+                   Statmen statmen =  hashMapStatments.get(titl);
+                    if(statmen.State==StatmenEnum.DONE){
 
                     }else{
-                        
+                        Intent intent = new Intent(context, StatmenNotEndActivity.class);
+                        intent.putExtra("AllText",statmen.fullText);
+                        intent.putExtra("date",statmen.simpleDate.format(new Date()));
+                        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                        intent.putExtra("valueState",statmen.State.ordinal());
+                        context.startActivity(intent);
                     }
                 }
             });
@@ -83,12 +86,12 @@ public class StatmenAdapter implements ListAdapter {
             tittle.setText(statmenDate.Text);
 
             ImageView imgView= convertView.findViewById(R.id.imageViewIconState);
-hashMapStatments.put(statmenDate.Text,statmenDate.State);
+hashMapStatments.put(statmenDate.Text,statmenDate);
             switch (statmenDate.State) {
                 case DONE:
                 imgView.setImageDrawable(context.getDrawable(R.drawable.green_shape));
                     break;
-                case DOWLODED:
+                case EXPECTS:
                 imgView.setImageDrawable(context.getDrawable(R.drawable.red_shape));
                     break;
                 case PROCESSING:
