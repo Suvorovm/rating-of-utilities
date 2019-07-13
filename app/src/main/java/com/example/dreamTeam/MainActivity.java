@@ -1,6 +1,10 @@
 package com.example.dreamTeam;
 
+
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
+
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -98,13 +102,13 @@ public class MainActivity extends AppCompatActivity
 
         if (id == R.id.nav_home) {
 
-
-
         } else if (id == R.id.nav_gallery) {
             Intent intent =  new Intent(MainActivity.this, StatmenActivity.class);
         startActivity(intent);
 
+
         } else if (id == R.id.nav_reiting) {
+
 
         } else if (id == R.id.nav_tools) {
 
