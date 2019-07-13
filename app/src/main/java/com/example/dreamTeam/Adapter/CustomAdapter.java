@@ -74,12 +74,13 @@ public  class CustomAdapter implements ListAdapter {
                 @Override
                 public void onClick(View v) {
                     ImageView image = v.findViewById(R.id.imageViewDisplayIcon);
-                    Intent Main = new Intent(context.getApplicationContext(), CreateReport.class);
+                    Intent intent = new Intent(context.getApplicationContext(), CreateReport.class);
                     Bitmap bitmap = ((BitmapDrawable)image.getDrawable()).getBitmap();
                     ByteArrayOutputStream bs = new ByteArrayOutputStream();
                     bitmap.compress(Bitmap.CompressFormat.JPEG, 50, bs);
-                    Main.putExtra("byteArray", bs.toByteArray());
-                    context.startActivity(Main);
+                    intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                    intent.putExtra("byteArray", bs.toByteArray());
+                    context.startActivity(intent);
 
                 }
             });
@@ -87,7 +88,7 @@ public  class CustomAdapter implements ListAdapter {
             TextView tittle=convertView.findViewById(R.id.TextView);
             ImageView imag=convertView.findViewById(R.id.imageViewDisplayIcon);
 
-            TextView tittle=convertView.findViewById(R.id.NameOfAplicathion);
+           // TextView tittle=convertView.findViewById(R.id.NameOfAplicathion);
             ImageView img=convertView.findViewById(R.id.imageViewDisplayIcon);
             tittle.setText(subjectData.SubjectName);
 
