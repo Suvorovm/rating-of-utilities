@@ -49,7 +49,7 @@ public class MainActivity extends AppCompatActivity
         ArrayList<DataAboutField> arrayList = new ArrayList<DataAboutField>();
         arrayList.add(new DataAboutField("Газпром",getResources().getDrawable( R.drawable.gaz1 )));
         arrayList.add(new DataAboutField("Горводоканал",getResources().getDrawable( R.drawable.gorvodok )));
-        arrayList.add(new DataAboutField("ТНС Энерго",getResources().getDrawable( R.drawable.energo )));
+        arrayList.add(new DataAboutField("ТНС Энерго",getResources().getDrawable( R.drawable.energo)));
         CustomAdapter customAdapter = new  CustomAdapter(this.getApplicationContext(),arrayList);
         list.setAdapter(customAdapter);
     }
