@@ -1,9 +1,7 @@
-package com.example.dreamTeam;
+package com.example.dreamTeam.Activity;
 
 
-import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -21,9 +19,10 @@ import android.view.Menu;
 
 import android.widget.ListView;
 
-import com.example.dreamTeam.Activity.StatmenActivity;
 import com.example.dreamTeam.Adapter.CustomAdapter;
-import com.example.dreamTeam.Adapter.StatmenAdapter;
+import com.example.dreamTeam.DataAboutField;
+import com.example.dreamTeam.LogInActiviry;
+import com.example.dreamTeam.R;
 
 import java.util.ArrayList;
 

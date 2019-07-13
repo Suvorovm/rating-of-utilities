@@ -1,6 +1,5 @@
 package com.example.dreamTeam.Activity;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -16,18 +15,22 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.widget.ListView;
 
-import com.example.dreamTeam.Adapter.CustomAdapter;
 import com.example.dreamTeam.Adapter.StatmenAdapter;
-import com.example.dreamTeam.DataAboutField;
-import com.example.dreamTeam.MainActivity;
 import com.example.dreamTeam.R;
 import com.example.dreamTeam.Statmen;
 import com.example.dreamTeam.StatmenEnum;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 
 public class StatmenActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
+    public  static  String first =
+            "У нас пяти этажный двух подъездный дом(14 лет). В конце декабря 2018 года затопило цокольный этаж канализационными отходами.Лишь 4 января мы смогли дозвонится до управляющей компании «Комфорт»,которая обслуживает наш дом. Сначала они говорили ,что выходные,теперь они не могут найти хозяина цокольного этажа,хотя стало известно,что он в декабре скончался.Аварийная служба тоже не может попасть в цоколь,запах стоит не только в подъезде но и в квартирах,как быть? Помогите разобраться. Мы будем вам очень благодарны.";
+    public  static  String second ="Здравствуйте! Такая ситуация: живём на 4 этаже, на 1 этаже не работает вентканал в ванной, жильцы обратились в управляющую компанию,ншли засор на нашем этаже, теперь просят доступ ломать стену, мы только закончили дорогостоящий ремонт. Насколько мне известно пробивать засор должны с чердака, раз мы не даем доступ уже 4 дня назад отключили газ и сказали не подключать пока не устранят засор. ";
+    public  static  String third = "Мой дом построен в 1974 году, а кап. ремонт только в 2021. Моя квартира боковая на 11 этаже и у меня очень холодно. Температура в комнате редко когда соответствует нормативам в 20 градусов. Плюс в двух углах и посреди одной стены комнаты начали ползти приличные трещины из-за которых становится еще холоднее. Я боюсь до капремонта я не дотяну, либо замерзну, либо на меня соседи сверху рухнут.";
+            ;
+            public  final int numberOFSymbols = 33;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,9 +57,15 @@ public class StatmenActivity extends AppCompatActivity
 
         final ListView list =(ListView) findViewById(R.id.liststatmen);
         ArrayList<Statmen> arrayList = new ArrayList<Statmen>();
-        arrayList.add(new Statmen("Нет uорячей воды в корпусе 2 по улице Кранштадская 45 ", StatmenEnum.DONE));
-        arrayList.add(new Statmen("Месяц не убирается дерево на улице Пушкиа 124б меры ",StatmenEnum.PROCESSING));
-        arrayList.add(new Statmen("Не могут сдлеать качественную дорогу по части улице 125 конта ",StatmenEnum.DOWLODED));
+        String first1 = first.substring(0, Math.min(first.length(), numberOFSymbols))+ "...";
+        String second2 = second.substring(0, Math.min(second.length(), numberOFSymbols))+ "...";
+        String third3 = third.substring(0, Math.min(third.length(), numberOFSymbols))+ "...";
+
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("10.06.2019");
+
+        arrayList.add(new Statmen(first1, StatmenEnum.DONE,simpleDateFormat,first));
+        arrayList.add(new Statmen(second2,StatmenEnum.PROCESSING,simpleDateFormat,second));
+        arrayList.add(new Statmen(third3,StatmenEnum.DOWLODED,simpleDateFormat,third));
 
         StatmenAdapter statmenAdapter = new StatmenAdapter(this.getApplicationContext(),arrayList);
         list.setAdapter(statmenAdapter);
