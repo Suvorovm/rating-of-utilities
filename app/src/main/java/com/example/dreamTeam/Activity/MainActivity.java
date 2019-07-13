@@ -1,9 +1,7 @@
-package com.example.dreamTeam;
+package com.example.dreamTeam.Activity;
 
 
-import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -21,8 +19,10 @@ import android.view.Menu;
 
 import android.widget.ListView;
 
-import com.example.dreamTeam.Activity.StatmenActivity;
 import com.example.dreamTeam.Adapter.CustomAdapter;
+import com.example.dreamTeam.DataAboutField;
+import com.example.dreamTeam.LogInActiviry;
+import com.example.dreamTeam.R;
 
 import java.util.ArrayList;
 
@@ -103,9 +103,8 @@ public class MainActivity extends AppCompatActivity
         if (id == R.id.nav_home) {
 
         } else if (id == R.id.nav_gallery) {
-            Intent intent =  new Intent(MainActivity.this, StatmenActivity.class);
+          Intent intent =  new Intent(MainActivity.this,StatmenActivity.class);
         startActivity(intent);
-
 
         } else if (id == R.id.nav_reiting) {
 
