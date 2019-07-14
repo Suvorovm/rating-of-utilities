@@ -6,6 +6,7 @@ import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.widget.RatingBar;
 
 import com.example.dreamTeam.R;
 
@@ -18,14 +19,15 @@ public class AssessmentActyvity extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        FloatingActionButton fab = findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
+        final RatingBar ratingBarQuality = (RatingBar) findViewById(R.id.ratingBarQualiry);
+        ratingBarQuality.setOnRatingBarChangeListener(new RatingBar.OnRatingBarChangeListener() {
             @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+            public void onRatingChanged(RatingBar ratingBar, float v, boolean b) {
+                ratingBarQuality.setRating(v);
+
             }
         });
+
     }
 
 }
