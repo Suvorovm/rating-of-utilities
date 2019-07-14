@@ -13,7 +13,7 @@
         />
 
     <TextView
-        android:id="@+id/TextViewRefer"
+        android:id="@+id/TextViewReferT"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
@@ -21,6 +21,7 @@
         android:paddingBottom="10dp"
         android:text="Some text here"
         android:textAlignment="center"
+        android:textColor="@android:color/black"
         android:textSize="14dp"
         android:textStyle="bold" />
 

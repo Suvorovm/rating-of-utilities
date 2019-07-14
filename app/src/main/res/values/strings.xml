@@ -16,4 +16,5 @@
     <string name="title_activity_statmen">"Список заявок "</string>
     <string name="title_activity_statmen_not_end_activiry">StatmenNotEndActiviry</string>
     <string name="title_activity_assessment_actyvity">AssessmentActyvity</string>
+    <string name="title_activity_raiting">raitingActivity</string>
 </resources>

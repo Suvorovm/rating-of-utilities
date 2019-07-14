@@ -1,13 +1,8 @@
 package com.example.dreamTeam.Adapter;
 
 import android.content.Context;
-
-
 import android.content.Intent;
 import android.database.DataSetObserver;
-import android.graphics.Bitmap;
-import android.graphics.drawable.BitmapDrawable;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,20 +10,25 @@ import android.widget.ImageView;
 import android.widget.ListAdapter;
 import android.widget.TextView;
 
-import com.example.dreamTeam.CreateReport;
-import com.example.dreamTeam.DataAboutField;
+import com.example.dreamTeam.Activity.AssessmentActyvity;
+import com.example.dreamTeam.Activity.StatmenNotEndActivity;
+import com.example.dreamTeam.ComponyRaiting;
 import com.example.dreamTeam.R;
+import com.example.dreamTeam.Statmen;
+import com.example.dreamTeam.StatmenEnum;
 
-import java.io.ByteArrayOutputStream;
 import java.util.ArrayList;
+import java.util.Date;
+import java.util.HashMap;
 
+public class RaitingAdapter  implements ListAdapter {
+    ArrayList<ComponyRaiting> arrayList;
+  public  static   Context context;
 
-public  class CustomAdapter implements ListAdapter {
-    ArrayList<DataAboutField> arrayList;
-    Context context;
-    public CustomAdapter(Context context, ArrayList<DataAboutField> arrayList) {
+    public RaitingAdapter(Context context, ArrayList<ComponyRaiting> arrayList) {
         this.arrayList=arrayList;
         this.context=context;
+
     }
     @Override
     public boolean areAllItemsEnabled() {
@@ -62,32 +62,23 @@ public  class CustomAdapter implements ListAdapter {
     }
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        DataAboutField subjectData=arrayList.get(position);
+        ComponyRaiting statmenDate=arrayList.get(position);
         if(convertView==null) {
             LayoutInflater layoutInflater = LayoutInflater.from(context);
-            convertView=layoutInflater.inflate(R.layout.item_list, null);
+            convertView=layoutInflater.inflate(R.layout.layout_item_raiting, null);
             convertView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    ImageView image = v.findViewById(R.id.imageViewDisplayIcon);
-                    Intent intent = new Intent(context.getApplicationContext(), CreateReport.class);
-                    Bitmap bitmap = ((BitmapDrawable)image.getDrawable()).getBitmap();
-                    ByteArrayOutputStream bs = new ByteArrayOutputStream();
-                    bitmap.compress(Bitmap.CompressFormat.JPEG, 50, bs);
-                    intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                    intent.putExtra("byteArray", bs.toByteArray());
-                    context.startActivity(intent);
 
                 }
             });
+           ImageView img = convertView.findViewById(R.id.imageViewDisplayIcon);
+           TextView txtViwTitle = convertView.findViewById(R.id.TextViewReferT);
 
-            TextView tittle=convertView.findViewById(R.id.TextViewReferT);
+TextView textView = convertView.findViewById(R.id.textViewReiting11);
+           txtViwTitle.setText(statmenDate.TitleCompony);
+            textView.setText(statmenDate.Raiting);
 
-
-            ImageView img=convertView.findViewById(R.id.imageViewDisplayIcon);
-            tittle.setText(subjectData.SubjectName);
-
-            img.setImageDrawable(subjectData.Link);
         }
         return convertView;
     }
