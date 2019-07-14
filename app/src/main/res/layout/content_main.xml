@@ -12,14 +12,17 @@
         android:layout_width = "match_parent"
         android:layout_height = "match_parent"
         android:orientation = "vertical">
+
         <ListView
-            android:id = "@+id/list"
-            android:layout_width = "wrap_content"
-            android:layout_height = "match_parent"
-            android:divider = "#000"
-            android:dividerHeight = "1dp"
-            android:footerDividersEnabled = "false"
-            android:headerDividersEnabled = "false"/>
+            android:id="@+id/list"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginTop="10dp"
+            android:divider="#000"
+            android:dividerHeight="1dp"
+            android:footerDividersEnabled="false"
+            android:headerDividersEnabled="false"
+            android:paddingTop="20dp" />
 
     </LinearLayout>
 

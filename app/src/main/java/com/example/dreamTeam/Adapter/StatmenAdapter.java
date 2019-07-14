@@ -68,7 +68,7 @@ public class StatmenAdapter implements ListAdapter {
             convertView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    TextView textView = v.findViewById(R.id.TextViewRefer);
+                    TextView textView = v.findViewById(R.id.TextViewReferT);
                     String titl = textView.getText().toString();
                    Statmen statmen =  hashMapStatments.get(titl);
                     if(statmen.State==StatmenEnum.DONE){
@@ -86,7 +86,7 @@ public class StatmenAdapter implements ListAdapter {
                     }
                 }
             });
-           TextView tittle=convertView.findViewById(R.id.TextViewRefer);
+           TextView tittle=convertView.findViewById(R.id.TextViewReferT);
             tittle.setText(statmenDate.Text);
 
             ImageView imgView= convertView.findViewById(R.id.imageViewIconState);
