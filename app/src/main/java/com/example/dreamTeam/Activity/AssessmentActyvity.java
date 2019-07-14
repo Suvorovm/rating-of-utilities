@@ -30,4 +30,7 @@ public class AssessmentActyvity extends AppCompatActivity {
 
     }
 
+    public void OnClick(View view) {
+       this.finish();
+    }
 }
