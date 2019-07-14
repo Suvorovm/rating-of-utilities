@@ -3,5 +3,5 @@ package com.example.dreamTeam;
 public enum StatmenEnum{
     DONE ,
     PROCESSING,
-    DOWLODED
+    EXPECTS
 }

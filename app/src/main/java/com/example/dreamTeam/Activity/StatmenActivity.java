@@ -65,7 +65,7 @@ public class StatmenActivity extends AppCompatActivity
 
         arrayList.add(new Statmen(first1, StatmenEnum.DONE,simpleDateFormat,first));
         arrayList.add(new Statmen(second2,StatmenEnum.PROCESSING,simpleDateFormat,second));
-        arrayList.add(new Statmen(third3,StatmenEnum.DOWLODED,simpleDateFormat,third));
+        arrayList.add(new Statmen(third3,StatmenEnum.EXPECTS,simpleDateFormat,third));
 
         StatmenAdapter statmenAdapter = new StatmenAdapter(this.getApplicationContext(),arrayList);
         list.setAdapter(statmenAdapter);
