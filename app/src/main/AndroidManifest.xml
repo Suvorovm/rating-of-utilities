@@ -10,9 +10,13 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
+            android:name=".Activity.AssessmentActyvity"
+            android:label="@string/title_activity_assessment_actyvity"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity
             android:name=".Activity.StatmenNotEndActivity"
             android:label="@string/title_activity_statmen_not_end_activiry"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".LogInActiviry"
             android:label="@string/app_name"
@@ -23,15 +27,15 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Activity.StatmenActivity"></activity>
+        <activity android:name=".Activity.StatmenActivity" />
         <activity
             android:name=".Activity.MainActivity"
             android:label="@string/app_name"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".CreateReport"
             android:label="@string/app_name"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
     </application>
 
 </manifest>
