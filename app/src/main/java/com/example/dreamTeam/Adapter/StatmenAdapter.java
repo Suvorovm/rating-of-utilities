@@ -10,6 +10,7 @@ import android.widget.ImageView;
 import android.widget.ListAdapter;
 import android.widget.TextView;
 
+import com.example.dreamTeam.Activity.AssessmentActyvity;
 import com.example.dreamTeam.Activity.StatmenNotEndActivity;
 import com.example.dreamTeam.R;
 import com.example.dreamTeam.Statmen;
@@ -71,7 +72,10 @@ public class StatmenAdapter implements ListAdapter {
                     String titl = textView.getText().toString();
                    Statmen statmen =  hashMapStatments.get(titl);
                     if(statmen.State==StatmenEnum.DONE){
-
+                        Intent intent = new Intent(context, AssessmentActyvity.class);
+                        intent.putExtra("answer","Ваш ответ обработан ");
+                        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                        context.startActivity(intent);
                     }else{
                         Intent intent = new Intent(context, StatmenNotEndActivity.class);
                         intent.putExtra("AllText",statmen.fullText);
